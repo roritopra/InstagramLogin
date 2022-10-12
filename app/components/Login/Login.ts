@@ -44,16 +44,15 @@ export class Login extends HTMLElement{
         <link rel="stylesheet" href=" ./components/Login/login.css">
         <div>
             <img class="side-img" src="../imagesLogin/smarthphone.jpg">
+            <img class="bottom-img" src="../imagesLogin/final.jpg">
             <section>
                 <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">    
                 <app-form></app-form>
 
           <img class="facebook-img" src="../imagesLogin/forgotPassword.jpg">
-           
-        <div class="button-account">
-            <button>Do not have an account? Sign up.</button>
-        </div>
                 
+            <button type="account">Do not have an account? Sign up.</button>
+    
             </section>
         </div>
         `

@@ -38,16 +38,23 @@ export class Register extends HTMLElement {
         this.shadowRoot.innerHTML = `
         <section>
         <link rel="stylesheet" href=" ./components/Register/register.css">
+        
+        
             <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">
             <h2>Sign up to see photos and videos from your friends.</h2>
+
+            <img class="log-img" src="../imagesRegister/logFacebook.jpg">
+
             <app-form></app-form>
-           
+
             <p>Users of our service may have uploaded your contact information on Instagram. More information</p>
 
             <p>By signing up, you agree to our Terms, our Privacy Policy and our Cookies Policy.</p>
+
+            <button type="account">Have an account? Log in.</button>
             
-            <button>Do not have an account? Sign up.</button>
         </section>
+        <img class="app-img" src="../imagesRegister/app.jpg">
         `;
     }
 }
