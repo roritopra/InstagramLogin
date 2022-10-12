@@ -1,0 +1,24 @@
+section {
+    background-color: white;
+    width: 350px;
+    border: 1px black solid;
+    padding: 32px;
+    box-sizing: border-box;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    color: rgb(112, 112, 112);
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 17px;
+}
+
+img {
+    width: 175px;
+    margin: 0 auto;
+    display: block;
+}

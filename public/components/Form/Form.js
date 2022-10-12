@@ -32,15 +32,14 @@ export class Form extends HTMLElement {
             return;
         this.shadowRoot.innerHTML = `
         <article>
-        <link rel="stylesheet" href=" ./components/Form/style.css"
-            <h3>Form</h3>
-            <div>
-                <label>Email</label>
-                <input type="email" />
+        <link rel="stylesheet" href=" ./components/Form/style.css">
+            <div class="input">
+                <label class="input__label">Email</label>
+                <input class="input__field" type="email" />
             </div>
-            <div>
-                <label>Contraseña</label>
-                <input type="password" />
+            <div class="input">
+                <label class="input__label">Contraseña</label>
+                <input class="input__field" type="password" />
             </div>
             <button type="submit">Enviar</button>
         </article>

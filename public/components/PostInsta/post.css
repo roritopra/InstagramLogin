@@ -1,0 +1,27 @@
+section {
+    font-family: sans-serif;
+    border: black 1px solid;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 48px auto;
+}
+
+.post-header {
+    display: flex;
+    padding: 8px;
+}
+
+.post-header p,
+.post-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.post-header img {
+    height: 36px;
+}
+
+.tools img {
+    height: 24px;
+    margin: 6px;
+}

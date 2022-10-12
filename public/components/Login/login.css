@@ -1,0 +1,33 @@
+div {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.side-img {
+    margin: 0;
+    width: 450px;
+}
+
+section {
+    background-color: white;
+    width: 350px;
+    border: 1px black solid;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: rgb(112, 112, 112);
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 17px;
+}
+
+img {
+    width: 175px;
+    margin: 0 auto;
+    display: block;
+}

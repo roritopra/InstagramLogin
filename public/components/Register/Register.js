@@ -5,13 +5,31 @@ export class Register extends HTMLElement {
         this.attachShadow({ mode: "open" });
     }
     connectedCallback() {
-        var _a;
+        var _a, _b;
         this.render();
         const form = (_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector("app-form");
-        form.addEventListener("form-fullfiled", (evt) => {
+        form === null || form === void 0 ? void 0 : form.addEventListener("form-fullfiled", (evt) => {
             const email = evt.detail.email;
             const password = evt.detail.password;
-            addUser({ email, password });
+            addUser({ email, password }).then(value => {
+                if (value) {
+                    const event = new CustomEvent("register-success", {
+                        composed: true
+                    });
+                    console.log(this);
+                    this.dispatchEvent(event);
+                }
+                else {
+                    alert("Las credenciales no coinciden");
+                }
+            });
+        });
+        const toLoginBtn = (_b = this.shadowRoot) === null || _b === void 0 ? void 0 : _b.querySelector('button');
+        toLoginBtn === null || toLoginBtn === void 0 ? void 0 : toLoginBtn.addEventListener('click', () => {
+            const event = new CustomEvent('go-login', {
+                composed: true
+            });
+            this.dispatchEvent(event);
         });
     }
     render() {
@@ -19,9 +37,11 @@ export class Register extends HTMLElement {
             return;
         this.shadowRoot.innerHTML = `
         <section>
-        <link rel="stylesheet" href=" ./components/Register/style.css"
-            <h3>Register</h3>
+        <link rel="stylesheet" href=" ./components/Register/register.css">
+            <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">
+            <h2>Regístrate para ver fotos y vídeos de tus amigos.</h2>
             <app-form></app-form>
+            <button>¿Ya tienes cuenta? Inicia sesión</button>
         </section>
         `;
     }
