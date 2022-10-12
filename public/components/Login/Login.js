@@ -41,9 +41,14 @@ export class Login extends HTMLElement {
             <img class="side-img" src="../imagesLogin/smarthphone.jpg">
             <section>
                 <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">    
-                <h3>Log in</h3>
                 <app-form></app-form>
-                <button>¿No tienescuenta? Registratte</button>
+
+          <img class="facebook-img" src="../imagesLogin/forgotPassword.jpg">
+           
+        
+            <button>Do not have an account? Sign up.</button>
+       
+                
             </section>
         </div>
         `;

@@ -37,11 +37,15 @@ export class Form extends HTMLElement {
                 <label class="input__label">Email</label>
                 <input class="input__field" type="email" />
             </div>
+           
             <div class="input">
-                <label class="input__label">Contraseña</label>
+                <label class="input__label">Password</label>
                 <input class="input__field" type="password" />
             </div>
-            <button type="submit">Enviar</button>
+                
+            
+                <button type="submit">Sign up</button>
+            
         </article>
         `;
     }

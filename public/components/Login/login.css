@@ -14,20 +14,31 @@ div {
 section {
     background-color: white;
     width: 350px;
-    border: 1px black solid;
+    border: 1px rgb(192, 192, 192) solid;
     padding: 32px;
     box-sizing: border-box;
 }
 
-h2 {
-    color: rgb(112, 112, 112);
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 17px;
-}
 
 img {
     width: 175px;
     margin: 0 auto;
     display: block;
+    margin-bottom: 25px;
 }
+
+button {
+    width: 100%;
+}
+
+.facebook-img{
+    width: 250px ;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px ;
+
+}
+
+
+

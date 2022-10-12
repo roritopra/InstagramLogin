@@ -39,9 +39,14 @@ export class Register extends HTMLElement {
         <section>
         <link rel="stylesheet" href=" ./components/Register/register.css">
             <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">
-            <h2>Regístrate para ver fotos y vídeos de tus amigos.</h2>
+            <h2>Sign up to see photos and videos from your friends.</h2>
             <app-form></app-form>
-            <button>¿Ya tienes cuenta? Inicia sesión</button>
+           
+            <p>Users of our service may have uploaded your contact information on Instagram. More information</p>
+
+            <p>By signing up, you agree to our Terms, our Privacy Policy and our Cookies Policy.</p>
+            
+            <button>Do not have an account? Sign up.</button>
         </section>
         `;
     }
