@@ -57,3 +57,24 @@ const firebaseConfig = {
         return false;
     }
   }
+
+  export const addPost = async ({
+    username,
+    image,
+    comment
+  }:{
+    username: string;
+    image: string;
+    comment: string;
+  }) => {
+    try {
+        const docRef = await addDoc(collection(db,"posts"),{
+          username,
+          image,
+          comment
+        });
+        return true;
+    } catch (error) {
+        return false;
+    }
+  }

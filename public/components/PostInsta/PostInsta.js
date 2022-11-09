@@ -9,6 +9,7 @@ export var Attribute;
     Attribute["saveimg"] = "saveimg";
     Attribute["comments"] = "comments";
     Attribute["viewers"] = "viewers";
+    Attribute["comment"] = "comment";
 })(Attribute || (Attribute = {}));
 class MyPost extends HTMLElement {
     constructor() {
@@ -25,7 +26,8 @@ class MyPost extends HTMLElement {
             sendimg: null,
             saveimg: null,
             comments: null,
-            viewers: null
+            viewers: null,
+            comment: null
         };
         return Object.keys(attrs);
     }
@@ -57,9 +59,9 @@ class MyPost extends HTMLElement {
                     <img src=${this.saveimg} height = "40np"></img>
 
                 </div>
-                <p>Milan spam get ready 🖤</p>
+                <p>${this.comment}</p>
                 <p><strong>${this.viewers} views</strong></p>
-                <p><strong>Watch the ${this.comments} comments</strong></p>
+                <p>Watch the ${this.comments} comments</p>
             </section>
             `;
         }

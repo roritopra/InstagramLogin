@@ -2,13 +2,16 @@ import "../index.js";
 import data from "../../dataPost.js";
 import data2 from "../../dataMenu.js";
 import data3 from "../../dataHistory.js";
+import data4 from "../../dataSuggestions.js";
 import MyPost, {Attribute} from "../PostInsta/PostInsta.js";
 import MyMenu, {Attribute2} from "../Menu/Menu.js";
 import MyHistory, {Attribute3} from "../Hystory/History.js";
+import MySuggestion, {Attribute4} from "../Suggestions/Suggestions.js";
 export class Home extends HTMLElement{
     post: MyPost[] = [];
     menuUser: MyMenu[] = [];
     historyUser: MyHistory[] = [];
+    suggestionsUser: MySuggestion[] = [];
     
 
     constructor(){
@@ -27,6 +30,7 @@ export class Home extends HTMLElement{
             postCard.setAttribute(Attribute.saveimg, user.saveimg);
             postCard.setAttribute(Attribute.comments, "" + user.comments);
             postCard.setAttribute(Attribute.viewers, "" + user.viewers);
+            postCard.setAttribute(Attribute.comment, user.comment);
 
             this.post.push(postCard);
         });
@@ -53,10 +57,28 @@ export class Home extends HTMLElement{
         
         });    
 
+        data4.forEach((suggestionsUser)=>{
+            const suggestedCard = this.ownerDocument.createElement("content-suggested") as MySuggestion;
+            suggestedCard.setAttribute(Attribute4.nameprofile, suggestionsUser.nameprofile);
+            suggestedCard.setAttribute(Attribute4.image, suggestionsUser.image);
+            suggestedCard.setAttribute(Attribute4.followers, suggestionsUser.followers);
+
+
+            this.suggestionsUser.push(suggestedCard);
+
+        });   
     }
 
     connectedCallback(){
         this.render();
+
+        const toCreatePost = this.shadowRoot?.querySelector('my-menu');
+        toCreatePost?.addEventListener('to-create-post', () => {
+            const event: CustomEvent = 
+                new CustomEvent("to-create-post",{composed: true});
+                
+            this.dispatchEvent(event);
+        });
     }
 
     render(){
@@ -68,6 +90,7 @@ export class Home extends HTMLElement{
             contentContainer.classList.add("content");
             const postContainer = document.createElement("div");
             const historyContainer = document.createElement("div");
+            const suggested = document.createElement("div");
             historyContainer.classList.add("content-history");
 
             this.menuUser.forEach((menuUser)=>{
@@ -84,9 +107,13 @@ export class Home extends HTMLElement{
                 postContainer.appendChild(post);
             });
 
-            //contentContainer.appendChild(suggested);
-               
+            this.suggestionsUser.forEach((suggestion)=>{
+                suggested.appendChild(suggestion);
+            });
+
+            
             contentContainer.appendChild(postContainer);
+            contentContainer.appendChild(suggested);
             this.shadowRoot?.appendChild(contentContainer);
         }
     }

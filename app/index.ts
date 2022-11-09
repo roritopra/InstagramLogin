@@ -2,7 +2,8 @@ import "./components/index.js";
 enum Screens {
     login,
     register,
-    home
+    home,
+    createPost
 }
 
 class AppContainer extends HTMLElement{
@@ -19,6 +20,17 @@ class AppContainer extends HTMLElement{
         const toHome = () => this.changeScreen(Screens.home);
         const toLogin = () => this.changeScreen(Screens.login);
         const toRegister = () => this.changeScreen(Screens.register);
+        const toCreatePost = () => {
+            console.log("From Index");
+            
+            this.changeScreen(Screens.createPost);
+        };
+
+        const createPost = this.shadowRoot?.querySelector("app-create-post");
+        createPost?.addEventListener('form-fulfilled', () => toHome);
+
+        const home = this.shadowRoot?.querySelector("app-home");
+        home?.addEventListener("to-create-post", () => toCreatePost);
 
         const login = this.shadowRoot?.querySelector("app-login");
         login?.addEventListener("login-success", toHome);
@@ -53,6 +65,10 @@ class AppContainer extends HTMLElement{
             
             case Screens.register:
                 this.shadowRoot.innerHTML = "<app-register></app-register>"
+            break;
+
+            case Screens.createPost: 
+                this.shadowRoot.innerHTML = "<app-create-post></app-create-post>"
             break;
 
             default:

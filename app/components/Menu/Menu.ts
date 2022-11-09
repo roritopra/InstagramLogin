@@ -38,6 +38,16 @@ class MyMenu extends HTMLElement{
 
     connectedCallback(){
         this.render();
+
+        const createPostButton = this.shadowRoot?.querySelector("#create-post");
+        createPostButton?.addEventListener('click', () => {
+            console.log('From Menu');
+            
+            const event: CustomEvent = 
+                new CustomEvent("to-create-post",{composed: true});
+
+            this.dispatchEvent(event);
+        });
     }
 
     attributeChangedCallback(
@@ -57,12 +67,12 @@ class MyMenu extends HTMLElement{
             <section>
                 <header>          
                     <img src=${this.instagramimg} height = "50np"></img>
-                    <input type="text" placeholder="Buscar">
+                    <input type="text" placeholder="Search">
 
                     <div>
                         <img src=${this.homeimg} height = "50np"></img>
                         <img src=${this.sendmenuimg} height = "50np"></img>
-                        <img src=${this.addimg} height = "50np"></img>
+                        <img id="create-post" src=${this.addimg} height = "50np"></img>
                         <img src=${this.exploreimg} height = "50np"></img>
                         <img src=${this.likemenuimg} height = "50np"></img>
                         <img src=${this.perfilmenuimg} height = "50np"></img>

@@ -47,3 +47,16 @@ export const addUser = ({ email, password }) => __awaiter(void 0, void 0, void 0
         return false;
     }
 });
+export const addPost = ({ username, image, comment }) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const docRef = yield addDoc(collection(db, "posts"), {
+            username,
+            image,
+            comment
+        });
+        return true;
+    }
+    catch (error) {
+        return false;
+    }
+});

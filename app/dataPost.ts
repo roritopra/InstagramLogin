@@ -9,6 +9,7 @@ interface dataPost {
     saveimg: string;
     comments: number;
     viewers: number;
+    comment: string;
   
 }
 
@@ -22,8 +23,9 @@ const data: dataPost[] = [
     commentimg: "../imagesPost/comment.png",
     sendimg: "../imagesPost/send.png",
     saveimg: "../imagesPost/save.png",
-    comments: 29658,
-    viewers: 1094576
+    comment: "Milan spam get ready 🖤",
+    comments: 961,
+    viewers: 10.945
   },
 ];
 

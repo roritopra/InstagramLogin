@@ -26,7 +26,14 @@ class MyMenu extends HTMLElement {
         return Object.keys(attrs);
     }
     connectedCallback() {
+        var _a;
         this.render();
+        const createPostButton = (_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector("#create-post");
+        createPostButton === null || createPostButton === void 0 ? void 0 : createPostButton.addEventListener('click', () => {
+            console.log('From Menu');
+            const event = new CustomEvent("to-create-post", { composed: true });
+            this.dispatchEvent(event);
+        });
     }
     attributeChangedCallback(propName, oldValue, newValue) {
         this[propName] = newValue;
@@ -39,12 +46,12 @@ class MyMenu extends HTMLElement {
             <section>
                 <header>          
                     <img src=${this.instagramimg} height = "50np"></img>
-                    <input type="text" placeholder="Buscar">
+                    <input type="text" placeholder="Search">
 
                     <div>
                         <img src=${this.homeimg} height = "50np"></img>
                         <img src=${this.sendmenuimg} height = "50np"></img>
-                        <img src=${this.addimg} height = "50np"></img>
+                        <img id="create-post" src=${this.addimg} height = "50np"></img>
                         <img src=${this.exploreimg} height = "50np"></img>
                         <img src=${this.likemenuimg} height = "50np"></img>
                         <img src=${this.perfilmenuimg} height = "50np"></img>

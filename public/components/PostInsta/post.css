@@ -1,9 +1,10 @@
 section {
     font-family: sans-serif;
-    border: black 1px solid;
-    border-radius: 12px;
+    border: #dbdbdb 1.5px solid;
+    border-radius: 8px;
     max-width: 500px;
     margin: 48px auto;
+    background-color: white;
 }
 
 .post-header {

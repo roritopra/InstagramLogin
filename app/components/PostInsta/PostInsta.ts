@@ -5,9 +5,10 @@ export enum Attribute {
     "kimimg" = "kimimg",
     "commentimg" = "commentimg",
     "sendimg" = "sendimg",
-    "saveimg" = "saveimg"
+    "saveimg" = "saveimg",
     "comments" = "comments",
-    "viewers" = "viewers"
+    "viewers" = "viewers",
+    "comment" = "comment"
     
 }
 
@@ -21,6 +22,7 @@ class MyPost extends HTMLElement{
     saveimg?: string
     comments?: number;
     viewers?: number;
+    comment?: string
 
     static get observedAttributes(){
         const attrs: Record<Attribute,null> = {
@@ -32,7 +34,8 @@ class MyPost extends HTMLElement{
             sendimg: null,
             saveimg: null,
             comments: null,
-            viewers: null
+            viewers: null,
+            comment: null
         };
         return Object.keys(attrs); 
     }
@@ -76,9 +79,9 @@ class MyPost extends HTMLElement{
                     <img src=${this.saveimg} height = "40np"></img>
 
                 </div>
-                <p>Milan spam get ready 🖤</p>
+                <p>${this.comment}</p>
                 <p><strong>${this.viewers} views</strong></p>
-                <p><strong>Watch the ${this.comments} comments</strong></p>
+                <p>Watch the ${this.comments} comments</p>
             </section>
             `;
         }
