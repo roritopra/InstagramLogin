@@ -22,6 +22,12 @@ section {
     height: 36px;
 }
 
+.post-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .tools img {
     height: 24px;
     margin: 6px;

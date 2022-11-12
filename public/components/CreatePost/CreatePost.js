@@ -30,7 +30,7 @@ export class CreatePost extends HTMLElement {
                 try {
                     yield addPost(postData);
                     alert("Post creado");
-                    const event = new CustomEvent("form-fullfiled", { composed: true });
+                    const event = new CustomEvent("form-fullfilled", { composed: true });
                     this.dispatchEvent(event);
                 }
                 catch (error) {
@@ -78,9 +78,8 @@ export class CreatePost extends HTMLElement {
                 <label class="input__label">Comment</label>
                 <input class="input__field" type="text" id="comment"/>
             </div>
-                
             
-                <button type="submit">Create post</button>
+            <button type="submit">Create post</button>
             
         </article>
         `;

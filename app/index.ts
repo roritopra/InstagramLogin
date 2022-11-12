@@ -6,6 +6,13 @@ enum Screens {
     createPost
 }
 
+enum HomeAttributes {
+    'onCreatePost' = 'onCreatePost'
+}
+
+interface HomeProperties extends Element {
+    onPostCreation: (val:EventListener) => void;
+}
 class AppContainer extends HTMLElement{
     screen: Screens = Screens.register;
 
@@ -17,39 +24,28 @@ class AppContainer extends HTMLElement{
     connectedCallback(){
         this.render();
 
+        this.setEventListeners();
+    }
+
+    setEventListeners() {
         const toHome = () => this.changeScreen(Screens.home);
         const toLogin = () => this.changeScreen(Screens.login);
         const toRegister = () => this.changeScreen(Screens.register);
-        const toCreatePost = () => {
-            console.log("From Index");
-            
-            this.changeScreen(Screens.createPost);
-        };
+        const toCreatePost = () => this.changeScreen(Screens.createPost);
 
         const createPost = this.shadowRoot?.querySelector("app-create-post");
-        createPost?.addEventListener('form-fulfilled', () => toHome);
+        createPost?.addEventListener('form-fullfilled', toHome);
 
         const home = this.shadowRoot?.querySelector("app-home");
-        home?.addEventListener("to-create-post", () => toCreatePost);
+        (home as HomeProperties | undefined)?.onPostCreation(toCreatePost);
 
         const login = this.shadowRoot?.querySelector("app-login");
         login?.addEventListener("login-success", toHome);
         login?.addEventListener('go-register', toRegister);
-        login?.addEventListener('go-register', () => {
-            const register = this.shadowRoot?.querySelector("app-register");
-            register?.addEventListener("login-success", toHome);
-            register?.addEventListener('go-login', toLogin);
-        })
-
         
         const register = this.shadowRoot?.querySelector("app-register");
         register?.addEventListener("register-success", toHome);
         register?.addEventListener('go-login', toLogin);
-        register?.addEventListener('go-login', () => {
-            const login = this.shadowRoot?.querySelector("app-login");
-            login?.addEventListener("login-success", toHome);
-            login?.addEventListener('go-register', toRegister);
-        })
     }
 
     render(){
@@ -79,6 +75,7 @@ class AppContainer extends HTMLElement{
     changeScreen(screen: Screens) {
         this.screen = screen;
         this.render();
+        this.setEventListeners();
     }
 }
 

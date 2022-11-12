@@ -16,6 +16,11 @@
     color: gray;
 }
 
+article {
+    max-width: 500px;
+    margin: auto;
+}
+
 .input__field {
     display: block;
     width: 100%;

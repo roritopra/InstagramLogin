@@ -1,5 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getFirestore, collection, query, where, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+import { dataPost } from "../dataPost";
+
+interface dataPostSnapshot extends dataPost {
+  data: () => dataPost;
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyAsCCf7Rd3gk0zSvcGJRQY7h4To8P0d0O8",
@@ -68,13 +73,32 @@ const firebaseConfig = {
     comment: string;
   }) => {
     try {
-        const docRef = await addDoc(collection(db,"posts"),{
+        await addDoc(collection(db,"posts"),{
           username,
           image,
-          comment
+          comment,
+          viewers: 0,
+          comments: 0,
+          profileimg: '../imagesPost/perfil.png'
         });
         return true;
     } catch (error) {
         return false;
+    }
+  }
+
+  export const getPosts = async () => {
+    try {
+      const posts: dataPost[] = [];
+      const querySnapshot = await getDocs(collection(db, 'posts'));
+      querySnapshot.forEach((post: dataPostSnapshot) => {
+        posts.push(post.data());
+        console.log(post);
+        
+      });
+      return posts;
+    } catch (error) {
+      console.error(error);
+      alert('Ocurrió un error');
     }
   }

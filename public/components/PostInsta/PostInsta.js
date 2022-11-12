@@ -3,7 +3,7 @@ export var Attribute;
     Attribute["nameprofile"] = "nameprofile";
     Attribute["likeimg"] = "likeimg";
     Attribute["profileimg"] = "profileimg";
-    Attribute["kimimg"] = "kimimg";
+    Attribute["postimg"] = "postimg";
     Attribute["commentimg"] = "commentimg";
     Attribute["sendimg"] = "sendimg";
     Attribute["saveimg"] = "saveimg";
@@ -21,7 +21,7 @@ class MyPost extends HTMLElement {
             nameprofile: null,
             likeimg: null,
             profileimg: null,
-            kimimg: null,
+            postimg: null,
             commentimg: null,
             sendimg: null,
             saveimg: null,
@@ -50,13 +50,13 @@ class MyPost extends HTMLElement {
                         <p class="sponsored-text">sponsored</p>
                     </div>
                 </div>
-                <img src=${this.kimimg} height = "500np"></img>
+                <img src=${this.postimg} class="post-image" alt="Foto por ${this.nameprofile} con texto que dice ${this.comment}"></img>
 
                 <div class="tools">
-                    <img src=${this.likeimg} height = "40np"></img>
-                    <img src=${this.commentimg} height = "40np"></img>
-                    <img src=${this.sendimg} height = "40np"></img>
-                    <img src=${this.saveimg} height = "40np"></img>
+                    <img src="../imagesPost/likes.png" height = "40np" alt="Like"></img>
+                    <img src="../imagesPost/comment.png" height = "40np"></img>
+                    <img src="../imagesPost/send.png" height = "40np"></img>
+                    <img src="../imagesPost/save.png" height = "40np"></img>
 
                 </div>
                 <p>${this.comment}</p>

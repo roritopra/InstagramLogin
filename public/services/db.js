@@ -49,14 +49,32 @@ export const addUser = ({ email, password }) => __awaiter(void 0, void 0, void 0
 });
 export const addPost = ({ username, image, comment }) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const docRef = yield addDoc(collection(db, "posts"), {
+        yield addDoc(collection(db, "posts"), {
             username,
             image,
-            comment
+            comment,
+            viewers: 0,
+            comments: 0,
+            profileimg: '../imagesPost/perfil.png'
         });
         return true;
     }
     catch (error) {
         return false;
+    }
+});
+export const getPosts = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const posts = [];
+        const querySnapshot = yield getDocs(collection(db, 'posts'));
+        querySnapshot.forEach((post) => {
+            posts.push(post.data());
+            console.log(post);
+        });
+        return posts;
+    }
+    catch (error) {
+        console.error(error);
+        alert('Ocurrió un error');
     }
 });

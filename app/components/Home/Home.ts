@@ -7,33 +7,18 @@ import MyPost, {Attribute} from "../PostInsta/PostInsta.js";
 import MyMenu, {Attribute2} from "../Menu/Menu.js";
 import MyHistory, {Attribute3} from "../Hystory/History.js";
 import MySuggestion, {Attribute4} from "../Suggestions/Suggestions.js";
+import { getPosts } from "../../services/db.js";
 export class Home extends HTMLElement{
     post: MyPost[] = [];
     menuUser: MyMenu[] = [];
     historyUser: MyHistory[] = [];
     suggestionsUser: MySuggestion[] = [];
+    #onPostCreation: EventListener = () => {};
     
 
     constructor(){
         super();
         this.attachShadow({mode: "open"});
-        
-        data.forEach((user)=>{
-            
-            const postCard = this.ownerDocument.createElement("my-post") as MyPost;
-            postCard.setAttribute(Attribute.nameprofile, user.nameprofile);
-            postCard.setAttribute(Attribute.likeimg, user.likeimg);
-            postCard.setAttribute(Attribute.profileimg, user.profileimg);
-            postCard.setAttribute(Attribute.kimimg, user.kimimg);
-            postCard.setAttribute(Attribute.commentimg, user.commentimg);
-            postCard.setAttribute(Attribute.sendimg, user.sendimg);
-            postCard.setAttribute(Attribute.saveimg, user.saveimg);
-            postCard.setAttribute(Attribute.comments, "" + user.comments);
-            postCard.setAttribute(Attribute.viewers, "" + user.viewers);
-            postCard.setAttribute(Attribute.comment, user.comment);
-
-            this.post.push(postCard);
-        });
 
         data2.forEach((menuUser)=>{
             const menuCard = this.ownerDocument.createElement("my-menu") as MyMenu;
@@ -69,16 +54,38 @@ export class Home extends HTMLElement{
         });   
     }
 
-    connectedCallback(){
-        this.render();
+    async connectedCallback(){
+        const posts = await getPosts();
 
-        const toCreatePost = this.shadowRoot?.querySelector('my-menu');
-        toCreatePost?.addEventListener('to-create-post', () => {
-            const event: CustomEvent = 
-                new CustomEvent("to-create-post",{composed: true});
-                
-            this.dispatchEvent(event);
+        posts?.forEach(({
+            username: nameprofile,
+            image: postimg,
+            profileimg,
+            comment,
+            comments,
+            viewers
+        }) => {
+            console.log({
+                username: nameprofile,
+                image: postimg,
+                profileimg,
+                comment,
+                comments,
+                viewers
+            });
+            
+            const postCard = this.ownerDocument.createElement("my-post") as MyPost;
+            postCard.setAttribute(Attribute.nameprofile, nameprofile);
+            postCard.setAttribute(Attribute.profileimg, profileimg);
+            postCard.setAttribute(Attribute.postimg, postimg);
+            postCard.setAttribute(Attribute.comments, "" + comments);
+            postCard.setAttribute(Attribute.viewers, "" + viewers);
+            postCard.setAttribute(Attribute.comment, comment);
+
+            this.post.push(postCard);
         });
+
+        this.render();
     }
 
     render(){
@@ -116,6 +123,13 @@ export class Home extends HTMLElement{
             contentContainer.appendChild(suggested);
             this.shadowRoot?.appendChild(contentContainer);
         }
+    }
+
+    onPostCreation(val: EventListener) {
+        this.#onPostCreation = val;
+        const toCreatePost = this.shadowRoot?.querySelector('my-menu');
+        
+        toCreatePost?.addEventListener('to-create-post', this.#onPostCreation);
     }
 }
 
