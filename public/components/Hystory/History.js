@@ -28,7 +28,7 @@ class MyHistory extends HTMLElement {
             <link rel="stylesheet" href="./components/Hystory/history.css"> 
             <section>
             <div class="historyy">
-                <img class = "imagen" src = ${this.imagehistory}></img> 
+                <img class = "imagen" src = ${this.imagehistory} alt="" tabindex="0"></img> 
                 <h2 class = "username">${this.userhistory}</h2>
             </div>    
             </section>

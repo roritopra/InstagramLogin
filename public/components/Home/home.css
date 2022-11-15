@@ -22,4 +22,5 @@ body {
 
 .content > div:last-child {
     margin-top: 36px;
+    margin-left: 20px;
 }

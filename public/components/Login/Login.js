@@ -38,13 +38,13 @@ export class Login extends HTMLElement {
         this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href=" ./components/Login/login.css">
         <div>
-            <img class="side-img" src="../imagesLogin/smarthphone.jpg">
+            <img class="side-img" alt="" src="../imagesLogin/smarthphone.jpg">
             <img class="bottom-img" src="../imagesLogin/final.jpg">
             <section>
                 <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">    
                 <app-form></app-form>
 
-          <img class="facebook-img" src="../imagesLogin/forgotPassword.jpg">
+          <img class="facebook-img" alt="Login with facebook" tabindex="0" src="../imagesLogin/forgotPassword.jpg">
                 
             <button type="account">Do not have an account? Sign up.</button>
     

@@ -45,10 +45,10 @@ export class Register extends HTMLElement{
         <link rel="stylesheet" href=" ./components/Register/register.css">
         
         
-            <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">
+            <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png" alt="">
             <h2>Sign up to see photos and videos from your friends.</h2>
 
-            <img class="log-img" src="../imagesRegister/logFacebook.jpg">
+            <img class="log-img" src="../imagesRegister/logFacebook.jpg" alt="Login with facebook button" tabindex="0">
 
             <app-form></app-form>
 
