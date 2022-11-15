@@ -55,37 +55,43 @@ export class Home extends HTMLElement{
     }
 
     async connectedCallback(){
-        const posts = await getPosts();
-
-        posts?.forEach(({
-            username: nameprofile,
-            image: postimg,
-            profileimg,
-            comment,
-            comments,
-            viewers
-        }) => {
-            console.log({
+        try {
+            const posts = await getPosts();
+    
+            posts?.forEach(({
                 username: nameprofile,
                 image: postimg,
                 profileimg,
                 comment,
                 comments,
                 viewers
+            }) => {
+                console.log({
+                    username: nameprofile,
+                    image: postimg,
+                    profileimg,
+                    comment,
+                    comments,
+                    viewers
+                });
+                
+                const postCard = this.ownerDocument.createElement("my-post") as MyPost;
+                postCard.setAttribute(Attribute.nameprofile, nameprofile);
+                postCard.setAttribute(Attribute.profileimg, profileimg);
+                postCard.setAttribute(Attribute.postimg, postimg);
+                postCard.setAttribute(Attribute.comments, "" + comments);
+                postCard.setAttribute(Attribute.viewers, "" + viewers);
+                postCard.setAttribute(Attribute.comment, comment);
+    
+                this.post.push(postCard);
             });
-            
-            const postCard = this.ownerDocument.createElement("my-post") as MyPost;
-            postCard.setAttribute(Attribute.nameprofile, nameprofile);
-            postCard.setAttribute(Attribute.profileimg, profileimg);
-            postCard.setAttribute(Attribute.postimg, postimg);
-            postCard.setAttribute(Attribute.comments, "" + comments);
-            postCard.setAttribute(Attribute.viewers, "" + viewers);
-            postCard.setAttribute(Attribute.comment, comment);
-
-            this.post.push(postCard);
-        });
-
-        this.render();
+    
+            this.render();
+        } catch(error) {
+            console.error(error);
+        } finally {
+            this.onPostCreation();
+        }
     }
 
     render(){
@@ -125,8 +131,8 @@ export class Home extends HTMLElement{
         }
     }
 
-    onPostCreation(val: EventListener) {
-        this.#onPostCreation = val;
+    onPostCreation(val?: EventListener) {
+        this.#onPostCreation = val || this.#onPostCreation;
         const toCreatePost = this.shadowRoot?.querySelector('my-menu');
         
         toCreatePost?.addEventListener('to-create-post', this.#onPostCreation);

@@ -72,10 +72,10 @@ class MyMenu extends HTMLElement{
                     <div>
                         <img src=${this.homeimg} alt="Home image" tabindex="0" height = "50np"></img>
                         <img src=${this.sendmenuimg} alt="Send button" tabindex="0" height = "50np"></img>
-                        <img id="create-post" src=${this.addimg} alt"Create post button" tabindex="0" height = "50np"></img>
+                        <img id="create-post" src=${this.addimg} alt="Create post button" tabindex="0" height = "50np"></img>
                         <img src=${this.exploreimg} alt="Explore button" tabindex="0" height = "50np"></img>
-                        <img src=${this.likemenuimg} height alt"Notifications button" tabindex="0" = "50np"></img>
-                        <img src=${this.perfilmenuimg} alt"Profile button" tabindex="0" height = "50np"></img>
+                        <img src=${this.likemenuimg} height alt="Notifications button" tabindex="0" = "50np"></img>
+                        <img src=${this.perfilmenuimg} alt="Profile button" tabindex="0" height = "50np"></img>
                     </div>
                 </header>
             </section>

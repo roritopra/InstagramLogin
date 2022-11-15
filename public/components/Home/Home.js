@@ -7,16 +7,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-};
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Home_onPostCreation;
 import "../index.js";
@@ -64,26 +64,34 @@ export class Home extends HTMLElement {
     }
     connectedCallback() {
         return __awaiter(this, void 0, void 0, function* () {
-            const posts = yield getPosts();
-            posts === null || posts === void 0 ? void 0 : posts.forEach(({ username: nameprofile, image: postimg, profileimg, comment, comments, viewers }) => {
-                console.log({
-                    username: nameprofile,
-                    image: postimg,
-                    profileimg,
-                    comment,
-                    comments,
-                    viewers
+            try {
+                const posts = yield getPosts();
+                posts === null || posts === void 0 ? void 0 : posts.forEach(({ username: nameprofile, image: postimg, profileimg, comment, comments, viewers }) => {
+                    console.log({
+                        username: nameprofile,
+                        image: postimg,
+                        profileimg,
+                        comment,
+                        comments,
+                        viewers
+                    });
+                    const postCard = this.ownerDocument.createElement("my-post");
+                    postCard.setAttribute(Attribute.nameprofile, nameprofile);
+                    postCard.setAttribute(Attribute.profileimg, profileimg);
+                    postCard.setAttribute(Attribute.postimg, postimg);
+                    postCard.setAttribute(Attribute.comments, "" + comments);
+                    postCard.setAttribute(Attribute.viewers, "" + viewers);
+                    postCard.setAttribute(Attribute.comment, comment);
+                    this.post.push(postCard);
                 });
-                const postCard = this.ownerDocument.createElement("my-post");
-                postCard.setAttribute(Attribute.nameprofile, nameprofile);
-                postCard.setAttribute(Attribute.profileimg, profileimg);
-                postCard.setAttribute(Attribute.postimg, postimg);
-                postCard.setAttribute(Attribute.comments, "" + comments);
-                postCard.setAttribute(Attribute.viewers, "" + viewers);
-                postCard.setAttribute(Attribute.comment, comment);
-                this.post.push(postCard);
-            });
-            this.render();
+                this.render();
+            }
+            catch (error) {
+                console.error(error);
+            }
+            finally {
+                this.onPostCreation();
+            }
         });
     }
     render() {
@@ -118,7 +126,7 @@ export class Home extends HTMLElement {
     }
     onPostCreation(val) {
         var _a;
-        __classPrivateFieldSet(this, _Home_onPostCreation, val, "f");
+        __classPrivateFieldSet(this, _Home_onPostCreation, val || __classPrivateFieldGet(this, _Home_onPostCreation, "f"), "f");
         const toCreatePost = (_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('my-menu');
         toCreatePost === null || toCreatePost === void 0 ? void 0 : toCreatePost.addEventListener('to-create-post', __classPrivateFieldGet(this, _Home_onPostCreation, "f"));
     }
