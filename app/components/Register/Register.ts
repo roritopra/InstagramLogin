@@ -59,7 +59,7 @@ export class Register extends HTMLElement{
             <button type="account">Have an account? Log in.</button>
             
         </section>
-        <img class="app-img" src="../imagesRegister/app.jpg">
+        <img class="app-img" alt="download in app" src="../imagesRegister/app.jpg">
         `
     }
 }

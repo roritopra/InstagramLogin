@@ -41,13 +41,11 @@ export class Form extends HTMLElement{
         <article>
         <link rel="stylesheet" href=" ./components/Form/style.css">
             <div class="input">
-                <label class="input__label">Email</label>
-                <input class="input__field" type="email" />
+                <input class="input__field" type="email" placeholder="Email"/>
             </div>
            
             <div class="input">
-                <label class="input__label">Password</label>
-                <input class="input__field" type="password" />
+                <input class="input__field" type="password" placeholder="Password"/>
             </div>
                 
             

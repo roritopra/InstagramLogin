@@ -66,7 +66,7 @@ class MyMenu extends HTMLElement{
             <link rel="stylesheet" href="./components/Menu/menu.css"> 
             <section>
                 <header>          
-                    <img src=${this.instagramimg} height = "50np"></img>
+                    <img src=${this.instagramimg} height = "50np" alt="Instagram logo"></img>
                     <input type="text" placeholder="Search">
 
                     <div>

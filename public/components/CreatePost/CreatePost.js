@@ -65,8 +65,7 @@ export class CreatePost extends HTMLElement {
         <article>
         <link rel="stylesheet" href=" ./components/Form/style.css">
             <div class="input">
-                <label class="input__label">Username</label>
-                <input class="input__field" type="text" id="username"/>
+                <input class="input__field" type="username" placeholder="Username"/>
             </div>
            
             <div class="input">
@@ -75,8 +74,7 @@ export class CreatePost extends HTMLElement {
             </div>
 
             <div class="input">
-                <label class="input__label">Comment</label>
-                <input class="input__field" type="text" id="comment"/>
+                <input class="input__field" type="comment" placeholder="Comment"/>
             </div>
             
             <button type="submit">Create post</button>

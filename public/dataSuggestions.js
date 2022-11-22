@@ -2,31 +2,31 @@ const data4 = [
     {
         id: 1,
         nameprofile: "kimkardashian",
-        image: "../imagesSuggestion/auron.png",
+        image: "../imagesSuggestion/kim.png",
         followers: "neocade.co and 1 more follow this account"
     },
     {
         id: 2,
         nameprofile: "neocade.co",
-        image: "../imagesSuggestion/kanye.png",
+        image: "../imagesSuggestion/neocade.png",
         followers: "novilunio.rimer and 1 more follow this account"
     },
     {
         id: 3,
         nameprofile: "novilunio.rimer",
-        image: "../imagesSuggestion/messi.png",
+        image: "../imagesSuggestion/novilunio.png",
         followers: "angel.dior and 1 more follow this account"
     },
     {
         id: 4,
         nameprofile: "angel.dior",
-        image: "../imagesSuggestion/rubius.png",
+        image: "../imagesSuggestion/angelDior.png",
         followers: "benzem.a and 1 more follow this account"
     },
     {
         id: 5,
         nameprofile: "benzem.a",
-        image: "../imagesSuggestion/shakira.png",
+        image: "../imagesSuggestion/benzema.png",
         followers: "novilunio.rimer and 1 more follow this account"
     },
 ];

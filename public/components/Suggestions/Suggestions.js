@@ -29,7 +29,7 @@ class MySuggestion extends HTMLElement {
             this.shadowRoot.innerHTML = `
             <link rel="stylesheet" href="./components/Suggestions/suggestion.css"> 
             <section>
-                <img src=${this.image}>
+                <img src=${this.image} alt="Profile image suggestion">
                 <div>
                 <p>${this.nameprofile}</p>
                 <p class="mini-followers">${this.followers}</p>

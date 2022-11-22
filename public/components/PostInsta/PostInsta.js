@@ -44,7 +44,7 @@ class MyPost extends HTMLElement {
             <link rel="stylesheet" href="./components/PostInsta/post.css">
             <section>
                 <div class="post-header">
-                    <img src=${this.profileimg} height = "50np"></img>
+                    <img src=${this.profileimg} height = "50np" alt="Profile image"></img>
                     <div>
                         <h2 class="username">${this.nameprofile}</h2>
                         <p class="sponsored-text">sponsored</p>
@@ -54,9 +54,9 @@ class MyPost extends HTMLElement {
 
                 <div class="tools">
                     <img src="../imagesPost/likes.png" height = "40np" alt="Like"></img>
-                    <img src="../imagesPost/comment.png" height = "40np"></img>
-                    <img src="../imagesPost/send.png" height = "40np"></img>
-                    <img src="../imagesPost/save.png" height = "40np"></img>
+                    <img src="../imagesPost/comment.png" height = "40np" alt="Comment icon button"></img>
+                    <img src="../imagesPost/send.png" height = "40np" alt="Send icon button"></img>
+                    <img src="../imagesPost/save.png" height = "40np" alt="Save icon button"></img>
 
                 </div>
                 <p>${this.comment}</p>
