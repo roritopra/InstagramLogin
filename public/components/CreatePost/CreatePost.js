@@ -65,18 +65,15 @@ export class CreatePost extends HTMLElement {
         <article>
         <link rel="stylesheet" href=" ./components/Form/style.css">
             <div class="input">
-                <label class="input__label">Username</label>
-                <input class="input__field" type="text" id="username"/>
+                <input class="input__field" type="text" placeholder="Username" id="username"/>
             </div>
            
             <div class="input">
-                <label class="input__label">Image</label>
-                <input class="input__field" type="text" id="image"/>
+                <input class="input__field" type="text" placeholder="Image" id="image"/>
             </div>
 
             <div class="input">
-                <label class="input__label">Comment</label>
-                <input class="input__field" type="text" id="comment"/>
+                <input class="input__field" type="text" placeholder="Comment" id="comment"/>
             </div>
             
             <button type="submit">Create post</button>
