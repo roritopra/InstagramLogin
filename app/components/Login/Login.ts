@@ -23,7 +23,7 @@ export class Login extends HTMLElement{
 
                     this.dispatchEvent(event);
                 }else{
-                    alert("Las credenciales no coinciden");
+                    alert("The credentials do not match");
                 }
             })
         })
@@ -44,9 +44,9 @@ export class Login extends HTMLElement{
         <link rel="stylesheet" href=" ./components/Login/login.css">
         <div>
             <img class="side-img" alt="" src="../imagesLogin/smarthphone.jpg">
-            <img class="bottom-img" src="../imagesLogin/final.jpg">
+            <img class="bottom-img" src="../imagesLogin/final.jpg" alt="Terms and conditions">
             <section>
-                <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png">    
+                <img src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png" alt="Instagram logo">    
                 <app-form></app-form>
 
           <img class="facebook-img" alt="Login with facebook" tabindex="0" src="../imagesLogin/forgotPassword.jpg">

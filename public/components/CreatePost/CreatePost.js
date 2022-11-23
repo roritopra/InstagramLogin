@@ -35,11 +35,11 @@ export class CreatePost extends HTMLElement {
                 }
                 catch (error) {
                     console.error(error);
-                    alert("Ocurrió un error al crear el post");
+                    alert("An error occurred while creating the post");
                 }
             }
             else {
-                alert("Faltan campos");
+                alert("Missing fields");
             }
         }));
         const usernameInput = (_b = this.shadowRoot) === null || _b === void 0 ? void 0 : _b.querySelector('#username');
@@ -65,7 +65,8 @@ export class CreatePost extends HTMLElement {
         <article>
         <link rel="stylesheet" href=" ./components/Form/style.css">
             <div class="input">
-                <input class="input__field" type="username" placeholder="Username"/>
+                <label class="input__label">Username</label>
+                <input class="input__field" type="text" id="username"/>
             </div>
            
             <div class="input">
@@ -74,7 +75,8 @@ export class CreatePost extends HTMLElement {
             </div>
 
             <div class="input">
-                <input class="input__field" type="comment" placeholder="Comment"/>
+                <label class="input__label">Comment</label>
+                <input class="input__field" type="text" id="comment"/>
             </div>
             
             <button type="submit">Create post</button>

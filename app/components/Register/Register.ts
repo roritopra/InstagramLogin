@@ -23,7 +23,7 @@ export class Register extends HTMLElement{
 
                     this.dispatchEvent(event);
                 }else{
-                    alert("Las credenciales no coinciden");
+                    alert("The credentials do not match");
                 }
             })
         })
