@@ -24,7 +24,7 @@ export class  CreatePost extends HTMLElement{
                 }
                 try {
                     await addPost(postData);
-                    alert("Post creado");
+                    alert("Post created");
 
                     const event: CustomEvent = 
                     new CustomEvent("form-fullfilled",{composed: true});

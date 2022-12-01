@@ -70,7 +70,7 @@ class MyPost extends HTMLElement{
                         <p class="sponsored-text">sponsored</p>
                     </div>
                 </div>
-                <img src=${this.postimg} class="post-image" alt="Foto por ${this.nameprofile} con texto que dice ${this.comment}"></img>
+                <img src=${this.postimg} class="post-image" alt="Photo by ${this.nameprofile} with text that says ${this.comment}"></img>
 
                 <div class="tools">
                     <img src="../imagesPost/likes.png" height = "40np" alt="Like"></img>

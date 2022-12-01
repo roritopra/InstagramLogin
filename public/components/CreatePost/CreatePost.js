@@ -29,7 +29,7 @@ export class CreatePost extends HTMLElement {
                 };
                 try {
                     yield addPost(postData);
-                    alert("Post creado");
+                    alert("Post created");
                     const event = new CustomEvent("form-fullfilled", { composed: true });
                     this.dispatchEvent(event);
                 }
